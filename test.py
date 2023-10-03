@@ -1,28 +1,5 @@
 import numpy as np
-'''def leastSquares(A,Y):
-    # A == (X^T * X)^-1 * X^T * Y
-    trans = A.transpose()
-    mult = np.matmul(trans,A)
-    inv = np.linalg.inv(mult)
-    sec = np.matmul(inv,trans)
-    last = np.matmul(sec,Y)
-    #print(last)
-    intercept = round(last[0][0],2)
-    slope = round(last[1][0],2)
-    #print(slope)
-    #errors = [[0.0 for _ in range(len(Y[0]))] for _ in range(len(Y))]
-    errors = np.zeros_like(Y)
-    for i in range(len(Y)):
-        f = round(intercept + slope*A[i][1], 2)
-        errors[i][0] = Y[i][0] - f
-    SSE = np.matmul(errors.transpose(),errors)
-    print(SSE)
-    #test = np.linalg.lstsq(A,Y, rcond=None)
-    #print(test)
 
-   # step2 = np.linalg.inv(step1)
-   # print(step2)
-'''
 def leastSquares(A, Y):
     # A == (X^T * X)^-1 * X^T * Y
     trans = A.transpose()
@@ -112,6 +89,6 @@ Y2 = np.array([ [5],
     
 ])
 LRG = leastSquares(X2,Y2)
-#test = np.linalg.lstsq(X,Y,rcond=None)
-#print(test[0])
-print(LRG)
+test = np.linalg.lstsq(X,Y,rcond=None)
+print(f"Actual: {test[0]}")
+print(f"Mine: {LRG}")
