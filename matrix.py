@@ -74,6 +74,7 @@ def least_square(x, y):
     step1 = inverse_2x2_matrix(step0)
     step2 = matrix_multiplication(step1, transpose(x))
     step3 = matrix_multiplication(step2, y)
+    print(step3)
     b = round(step3[0][0], 1) # y-intercept
     m = round(step3[1][0], 1) # slope
     # f(x) = b + mx
@@ -83,25 +84,36 @@ def least_square(x, y):
     for i in range(len(y)):
         f = round(b + m*x[i][1], 2)
         errors[i][0] = y[i][0] - f
+    print(errors)
     # Sum of square of the errors = SSE
     SSE = matrix_multiplication(transpose(errors), errors)
+    SSE = round(SSE[0][0],2)
     print(SSE)
 
 
-x = [[1,49],
-     [1,69],
-     [1,89],
-     [1,99],
-     [1,109]
+x = [[1,0],
+     [1,1],
+     [1,2],
+     [1,3],
+     [1,4]
      ]
-
-y = [[124],
-     [95],
-     [71],
-     [45],
-     [18]
+# rowxcol
+# rowxcol
+y = [[0.2],
+     [2.9],
+     [3.3],
+     [7.2],
+     [8.5]
      ]
-
+A = [[1,0],
+     [1,1],
+     [1,2],
+     [1,3],
+     [1,4]
+        ]
+at = transpose(A)
+am = matrix_multiplication(at,A)
+print(am)
 least_square(x,y)
 #result = matrix_multiplication(x,y)
 #result = inverse_2x2_matrix(x)
