@@ -11,7 +11,8 @@ def gradientDescent(x_input, y_label, alpha):
     theta = np.random.rand()
     #theta = theta - alpha * np.gradient()
     p = sigmoid(x_input[1][0])
-    for i in range(len(x_input)):
+    y = y_label[i][0]
+    theta = theta - alpha * np.gradeient(logloss(p,y))
         
     logloss(p,y_label[1][0])
     print(logloss(p,y_label[1][0]))
