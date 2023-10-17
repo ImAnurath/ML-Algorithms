@@ -11,8 +11,12 @@ def gradientDescent(x_input, y_label, alpha):
     theta = np.random.rand()
     #theta = theta - alpha * np.gradient()
     p = sigmoid(x_input[1][0])
+    for i in range(len(x_input)):
+        
     logloss(p,y_label[1][0])
     print(logloss(p,y_label[1][0]))
+    print(f"Initial theta: {theta}")
+    print(f"Optimized theta: {theta}")
 
 learning_rate = 2
 
