@@ -71,3 +71,37 @@ for features in x_features:
         results.append("NEXT")
 
 print(results)'''
+
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+# Create a plot
+fig, ax = plt.subplots()
+
+# Draw nodes
+ax.plot([1.5, 1.5], [2.99, 2.99], marker='o', markersize=10, color='blue')  # Root node
+ax.plot([0.5, 0.9], [0.9, 0.6], marker='o', markersize=10, color='blue')  # Root node
+
+# Draw edges
+ax.plot([0.5, 0.1], [0.9, 0.6], color='black')  # Left branch
+ax.plot([0.5, 0.9], [0.9, 0.6], color='black')  # Right branch
+
+# Add text for nodes
+ax.text(1.5, 3.1, 'Feature X', ha='center', va='center', fontsize=12)
+ax.text(0.1, 0.6, 'Decision 1', ha='center', va='center', fontsize=12)
+ax.text(0.9, 0.6, 'Decision 2', ha='center', va='center', fontsize=12)
+
+# Add rectangles on top of the nodes
+rect1 = Rectangle((0.1 - 0.1, 0.6 - 0.05), 0.2, 0.2, linewidth=1, edgecolor='black', facecolor='lightgray')
+rect2 = Rectangle((0.9 - 0.1, 0.6 - 0.05), 0.2, 0.2, linewidth=1, edgecolor='black', facecolor='lightgray')
+
+ax.add_patch(rect1)
+ax.add_patch(rect2)
+
+# Customize plot appearance
+ax.set_xlim(0, 3)
+ax.set_ylim(0, 3)
+ax.axis('on')
+
+# Display the plot
+plt.show()
